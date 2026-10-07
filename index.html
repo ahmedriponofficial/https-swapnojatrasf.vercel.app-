@@ -161,7 +161,7 @@ const id=old.id||rid();delete o.id;if(c=='members'&&o.o==null)o.o=(S.members||[]
 document.addEventListener('change',e=>{const s=e.target.closest('[data-lv]');if(!s)return;const af=document.querySelector('form[data-f=find] [name=a]');if(af)A.q={...(A.q||{}),a:af.value};const df=document.querySelector('form[data-f=donor]');if(df)A.rf=Object.fromEntries(new FormData(df));const ad=document.querySelector('form[data-f=adm]');if(ad)A.af={...(A.af||{}),...Object.fromEntries([...new FormData(ad)].filter(x=>typeof x[1]=='string'))};const o=s.dataset.f=='find'?(A.q=A.q||{}):s.dataset.f=='adm'?(A.af=A.af||{}):(A.rf=A.rf||{}),K=['d','z','t'];o[s.dataset.lv]=s.value;K.slice(K.indexOf(s.dataset.lv)+1).forEach(k=>o[k]='');render()});
 document.addEventListener('input',e=>{const s=e.target.closest('[data-s]');if(!s)return;A.s=s.value;render();const n=document.querySelector('[data-s]');if(n){n.focus();n.setSelectionRange(s.value.length,s.value.length)}});
 addEventListener('hashchange',()=>{A.msg='';scrollTo(0,0);render()});render();
-const SB_URL='',SB_KEY='';
+const SB_URL='https://qucnnwujqlumvvncorfv.supabase.co',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1Y25ud3VqcWx1bXZ2bmNvcmZ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzOTU2MDAsImV4cCI6MjEwNjk3MTYwMH0.L4GtkrJRLYY-3cBd9MU-zZnZUsu-s3RuZQ_jaURrlb8';
 (async()=>{if(!SB_URL||!SB_KEY||!window.supabase)return;try{
 const sb=supabase.createClient(SB_URL,SB_KEY),T=['members','activities','donors'];
 const soft=()=>{const el=document.activeElement;if(!(el&&/INPUT|TEXTAREA|SELECT/.test(el.tagName)))render()};
